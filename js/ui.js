@@ -28,4 +28,27 @@ class UI {
                 })
             })
     }
+
+    // Metodo para imprimir mensajes
+    showMessage(message, classList) {
+        const div = document.createElement('div');
+        div.classList = classList;
+        // Agregar texto
+        div.appendChild(document.createTextNode(message));
+        // Buscar un padre
+        const searchDiv = document.querySelector('#search');
+        searchDiv.appendChild(div);
+        // Quitar el alert despues de 3 segundos
+        setTimeout(() => {
+            this.clearMessage();
+        }, 3000);
+    }
+
+    // Desaparece el mensaje en caso de que exista
+    clearMessage() {
+        const alert = document.querySelector('.alert');
+        if(alert) {
+            alert.remove();
+        }
+    }
 }
