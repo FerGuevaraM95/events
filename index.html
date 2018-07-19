@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- METATAGS -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Eventos</title>
+    <!-- STYLES -->
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body>
+    <!-- CONTENT -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-5">
+        <a class="navbar-brand" href="#">Buscador Eventos</a>
+    </nav>
+    <!-- CONTENT -->
+    <div class="container buscador">
+        <div id="search" class=" card card-body">
+            <h1 class="text-center">Busca Eventos de tu interés o en tu ciudad</h1>
+
+            <div class="form-group">
+                <label for="exampleSelect1">Buscar por Nombre o Ciudad</label>
+                <input type="text" id="event" class="form-control" placeholder="Busca por nombre de evento, banda o cantante">
+            </div>
+
+            <div class="form-group">
+                <label for="exampleSelect1">Categoría Evento</label>
+                <select class="form-control" id="categories-list"></select>
+            </div>
+
+            <input type="submit" class="mt-5 form-control btn btn-success" id="searchBtn" value="Buscar">
+        </div>
+        <div id="events-result" class="row mt-5"></div>
+    </div>
+    <!-- FOOTER -->
+    <footer class="mt-5 p-3 text-center bg-primary">
+        Buscador de Eventos &copy;
+    </footer>
+    <!-- SCRIPTS -->
+    <script src="js/eventbrite.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
