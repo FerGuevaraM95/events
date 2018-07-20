@@ -29,6 +29,37 @@ class UI {
             })
     }
 
+    // Lee la respuesta de la API e imprime los resultados
+    showEvents(events) {
+        // Lee los eventos y agregalos a una variable
+        const eventsList = events.events;
+
+        // Recorrer los eventos y crear su template
+        eventsList.forEach(event => {
+            this.list.innerHTML += `
+                <div class="col-md-4 mb-4">
+                    <div class="card">
+                        <img class="fluid mb-2" src="${event.logo !== null ? event.logo.url : ""}" >
+                    </div>
+                    <div class="card-body">
+                        <div class="card-text">
+                            <h2 class="text-center">${event.name.text}</h2>
+                            <p class="lead text-info">${event.description.text.substring(0,280)}...</p>
+                            <span class="badge badge-primary">Capacidad :${event.capacity}</span>
+                            <span class="badge badge-primary">Fecha y hora :${event.start.local}</span>
+                            <a class="btn btn-primary btn-block mt-4" href="${event.url}" target="_blank">Comprar boletos</a>
+                        <div>
+                    </div>
+                </div>
+            `;
+        })
+    }
+
+    //Limpia los resultados previos
+    clearResults() {
+        this.list.innerHTML = '';
+    }
+
     // Metodo para imprimir mensajes
     showMessage(message, classList) {
         const div = document.createElement('div');

@@ -14,7 +14,17 @@ document.getElementById('searchBtn').addEventListener('click', (e) => {
 
     // Revisar que haya algo escrito en el buscador
     if(searchText !== '') {
-        console.log('Buscando...');
+        eventbrite.getEvents(searchText, selectedCategory)
+            .then(events => {
+                if(events.events.events.length > 0) {
+                    // Si hay eventos
+                    ui.clearResults();
+                    ui.showEvents(events.events)
+                } else {
+                    // No hay eventos, mostrar un alerta
+                    ui.showMessage('No hay resultados', 'alert alert-danger mt-4');
+                }
+            })
     } else {
         ui.showMessage('Escribe algo en el buscador', 'alert alert-danger mt-4');
     }
