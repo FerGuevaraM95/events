@@ -36,6 +36,7 @@ class UI {
 
         // Recorrer los eventos y crear su template
         eventsList.forEach(event => {
+            console.log(event)
             this.list.innerHTML += `
                 <div class="col-md-4 mb-4">
                     <div class="card">
@@ -45,7 +46,6 @@ class UI {
                         <div class="card-text">
                             <h2 class="text-center">${event.name.text}</h2>
                             <p class="lead text-info">${event.description.text.substring(0,280)}...</p>
-                            <span class="badge badge-primary">Capacidad :${event.capacity}</span>
                             <span class="badge badge-primary">Fecha y hora :${event.start.local}</span>
                             <a class="btn btn-primary btn-block mt-4" href="${event.url}" target="_blank">Comprar boletos</a>
                         <div>
